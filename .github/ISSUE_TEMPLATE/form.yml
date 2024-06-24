@@ -1,0 +1,152 @@
+name: Create an new thread using the form wizard
+description: All new threads must use this form to get their thread formatted nicely.
+title: '[First name or username] Transparency Log Thread'
+assignees:
+  - RecapTimeBot
+  - RecapTimeSquad
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        # Welcome to the transparency log thread creation form
+
+        Once created, your log thread issue will be automatically assigned to
+        our admin and bot accounts (@RecapTimeSquad and @RecapTimeBot
+        respectively) and a GitHub action will run for issue labelling and
+        automation chores on other issue creation.
+
+        Have questions or need tirage access for locked issues? Reach us at
+        [this thread in Zulip](https://recaptime-dev.zulipchat.com/#narrow/stream/404710-devchat/topic/github.3Arecaptime-dev.2Ftransparency-log-threads).
+
+        ## How this works?
+
+        Similar to delegate communication threads in Arbitrum governance forum,
+        you make a new thread for logging your votes in the RTSIP process,
+        transparently publish any moderator actions you taken and other tasks
+        that may affect @recaptime-dev and the community as whole.
+
+
+        In our implementation of this, we lock issues to avoid spam and
+        unnecessary discussions but you can still reply as long as you are
+        direct contributor with triage access via
+        @recaptime-dev/transparency-log-threads team.
+
+
+        ## Instructions
+
+
+        * Fill up the fields in English. You can use a translator tool or get
+        help with a professional.
+
+        * Read the instructions carefully as you fill up.
+
+
+        ### For the role selector
+
+
+        * Select `squad` if you are member of @recaptime-dev/squad team and have
+        access to
+        [internal-recaptime-dev](https://github.com/internal-recaptime-dev)
+        GitHub org.
+
+        * For community maintainers in individual projects under Recap Time
+        Squad and in communities we contribute and participate, select
+        "`community-maintainer`.
+
+        * If working on us under a contract, select `contractor`.
+
+        * For moderators (excluding squad members as full-time mods), select
+        `moderator`.
+
+        * If you are part of our Legal or Trust and Safety teams, select
+        `legal`.
+  - type: input
+    id: name
+    attributes:
+      label: Screen or legal name
+      description: >-
+        If you use your legal name publicly, you can use them here. Otherwise,
+        use the name you normally use in open-source contributions. If you
+        worried about being deadnamed, please use the name you are comfortable
+        with in day-to-day communications.
+    validations:
+      required: true
+  - type: dropdown
+    id: role
+    attributes:
+      label: Role at RecapTime.dev
+      options:
+        - squad
+        - community-maintainer
+        - contractor
+        - moderator
+        - legal
+    validations:
+      required: true
+  - type: input
+    id: social_link
+    attributes:
+      label: Link to your social profile
+      description: >-
+        This can be your Twitter/X, Threads and/or fediverse profile link. If
+        you have more than one, use your link-in-bio webpage or your own domain.
+      placeholder: https://your.homeserver.social/@username
+  - type: input
+    id: lang
+    attributes:
+      label: Language spoken
+      description: List any languages you can speak to here
+      placeholder: English, Filipino, Spanish, ...
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: About
+      description: Introduce yourself here in at least two to three sentences.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Disclosure
+      description: >-
+        See <https://go.recaptime.dev/coi-disclosure> for instructions on how
+        and when to disclose.
+      placeholder: >-
+        Place any conflicts of interest here. If none, type "I do not have any
+        conflicts of interest as of the moment".
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Communication Intend
+      description: Describe how do you use your thread at least one sentence or more.
+    validations:
+      required: true
+  - type: checkboxes
+    attributes:
+      label: Legalese
+      description: >-
+        You know this, the final checks. Please tick them all before hitting
+        submit.
+      options:
+        - label: >-
+            I confirm that I filled this form correctly and accurate. I am
+            responsible and liable if anything go wrong.
+          required: true
+        - label: >-
+            I confirm that no personal or confidential information is included
+            in this form.
+          required: true
+        - label: >-
+            I understand that I will be the only one responsible for maintaining
+            my log thread.
+          required: true
+  - type: markdown
+    attributes:
+      value: >-
+        ---
+
+        This form was generated with [Issue Forms
+        Creator](https://issue-forms-creator.netlify.app). | Send feedback about
+        this wizard in the [meta issue
+        tracker](https://issues.recaptime.dev/new/gh-meta?form=tlt-form-feedback).
