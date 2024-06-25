@@ -1,0 +1,41 @@
+name: TriageOps
+on:
+  issues:
+    types: [ opened ]
+
+permissions:
+  contents: read
+
+jobs:
+  new-thread-setup:
+    name: Setup new thread
+    runs-on: ubuntu-latest
+    if: ${{ github.event.action == 'opened' }}
+
+    steps:
+      - uses: actions/create-github-app-token@v1
+        name: "Generate GitHub app token for @recaptimedev-automation[app]"
+        id: app-token
+        with:
+          app-id: ${{ secrets.GH_RTDEV_APP_ID }}
+          private-key: ${{ secrets.GH_RTDEV_APP_ID }}
+
+      - uses: actions/checkout@v3
+
+      - name: Parse issue form
+        uses: stefanbuck/github-issue-parser@v3
+        id: issue-parser
+        with:
+          template-path: .github/ISSUE_TEMPLATE/form.yml
+
+      - name: Set labels based on role
+        uses: redhat-plumbers-in-action/advanced-issue-labeler@v2
+        with:
+          issue-form: ${{ steps.issue-parser.outputs.jsonString }}
+          section: role
+          token: ${{ steps.app-token.outputs.token }}
+      
+      - name: Lock issue
+        uses: OSDKDev/lock-issues@v1.1
+        with:
+          repo-token: ${{ steps.app-token.outputs.token }}
