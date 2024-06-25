@@ -3,6 +3,8 @@ on:
   issues:
     types: [ opened ]
 
+# We only need contents:read permission since we'll be authenticate as our
+# own GitHUb app here.
 permissions:
   contents: read
 
@@ -42,7 +44,7 @@ jobs:
         with:
           github-token: ${{ steps.app-token.outputs.token }}
           script: |
-            const comment = `
+            const comment = `\
             Hi @${context.actor}!
             
             You are currently not yet allowlisted to create your own \
