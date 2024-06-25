@@ -19,6 +19,7 @@ permissions:
   contents: read
 
 jobs:
+  ######################## AUTOMATED ########################
   new-thread-setup:
     name: Setup new thread
     runs-on: ubuntu-latest
@@ -30,7 +31,7 @@ jobs:
         id: app-token
         with:
           app-id: ${{ secrets.GH_RTDEV_APP_ID }}
-          private-key: ${{ secrets.GH_RTDEV_APP_ID }}
+          private-key: ${{ secrets.GH_RTDEV_APP_KEY }}
           owner: recaptime-dev
 
       - uses: actions/checkout@v3
@@ -94,6 +95,7 @@ jobs:
           section: role
           token: ${{ steps.app-token.outputs.token }}
 
+  ######################## MANUAL ACTIONS ########################
   new-thread-setup-manual:
     name: 'Setup new thread [manual triggered]'
     runs-on: ubuntu-latest
@@ -105,7 +107,7 @@ jobs:
         id: app-token
         with:
           app-id: ${{ secrets.GH_RTDEV_APP_ID }}
-          private-key: ${{ secrets.GH_RTDEV_APP_ID }}
+          private-key: ${{ secrets.GH_RTDEV_APP_KEY }}
           owner: recaptime-dev
 
       - uses: actions/checkout@v3
