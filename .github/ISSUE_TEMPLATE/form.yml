@@ -1,4 +1,4 @@
-name: Create an new thread using the form wizard
+name: Create a new thread using the form wizard
 description: All new threads must use this form to get their thread formatted nicely.
 title: '[First name or username] Transparency Log Thread'
 assignees:
@@ -20,17 +20,15 @@ body:
 
         ## How this works?
 
-        Similar to delegate communication threads in Arbitrum governance forum,
+        Similar to the delegate communication threads in the Arbitrum governance forum,
         you make a new thread for logging your votes in the RTSIP process,
-        transparently publish any moderator actions you taken and other tasks
-        that may affect @recaptime-dev and the community as whole.
-
+        transparently publish any moderator actions you have taken and other tasks
+        that may affect @recaptime-dev and the community as a whole.
 
         In our implementation of this, we lock issues to avoid spam and
-        unnecessary discussions but you can still reply as long as you are
+        unnecessary discussions, but you can still reply as long as you are
         direct contributor with triage access via
         @recaptime-dev/transparency-log-threads team.
-
 
         ## Instructions
 
@@ -38,11 +36,10 @@ body:
         * Fill up the fields in English. You can use a translator tool or get
         help with a professional.
 
-        * Read the instructions carefully as you fill up.
-
+        * Read the instructions carefully as you fill up, since this will be public,
+        but locked to prevent spam replies.
 
         ### For the role selector
-
 
         * Select `squad` if you are member of @recaptime-dev/squad team and have
         access to
@@ -65,7 +62,7 @@ body:
     attributes:
       label: Screen or legal name
       description: >-
-        If you use your legal name publicly, you can use them here. Otherwise,
+        If you use your legal name publicly, you can use it here. Otherwise,
         use the name you normally use in open-source contributions. If you
         worried about being deadnamed, please use the name you are comfortable
         with in day-to-day communications.
@@ -88,14 +85,14 @@ body:
     attributes:
       label: Link to your social profile
       description: >-
-        This can be your Twitter/X, Threads and/or fediverse profile link. If
-        you have more than one, use your link-in-bio webpage or your own domain.
+        This can be your Twitter/X, Threads, and/or fediverse profile link. If
+        you have more than one, use your link-in-bio webpage or your domain.
       placeholder: https://your.homeserver.social/@username
   - type: input
     id: lang
     attributes:
       label: Language spoken
-      description: List any languages you can speak to here
+      description: List any languages you can speak here
       placeholder: English, Filipino, Spanish, ...
     validations:
       required: true
@@ -118,8 +115,8 @@ body:
       required: true
   - type: textarea
     attributes:
-      label: Communication Intend
-      description: Describe how do you use your thread at least one sentence or more.
+      label: Communication Intent
+      description: Describe how you use your thread in at least one sentence or more.
     validations:
       required: true
   - type: checkboxes
@@ -130,8 +127,8 @@ body:
         submit.
       options:
         - label: >-
-            I confirm that I filled this form correctly and accurate. I am
-            responsible and liable if anything go wrong.
+            I confirm that I filled this form correctly and accurately. I am
+            responsible and liable if anything goes wrong.
           required: true
         - label: >-
             I confirm that no personal or confidential information is included
@@ -149,4 +146,4 @@ body:
         This form was generated with [Issue Forms
         Creator](https://issue-forms-creator.netlify.app). | Send feedback about
         this wizard in the [meta issue
-        tracker](https://issues.recaptime.dev/new/gh-meta?form=tlt-form-feedback).
+        tracker](https://issues.recaptime.dev/new/meta?form=tlt-form-feedback&gitlab=1&host=gitlab.com).
